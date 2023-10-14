@@ -10,9 +10,6 @@ pipeline {
   stages {
 
     stage('Checkout Source') {
-        environment {
-               registryCredential = 'github'
-           }
       steps {
         git 'https://github.com/Arbiel31/prueba.git'
       }
