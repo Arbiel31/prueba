@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment #The name of the Kubernetes Deployment to be created in the Kubernetes cluster
+  labels:
+    app: prueba
+spec:
+  replicas: 1 #The number of pods to be created in the Kubernetes cluster for the React.js application container
+  selector:
+    matchLabels:
+      app: prueba
+  template:
+    metadata:
+      labels:
+        app: prueba 
+    spec:
+      containers:
+      - name: prueba #The name of the react.js application container
+        image: arbiel/prueba:latest #The Docker image for building the React.js application container
+        ports:
+        - containerPort: 4200 #The port for the React.js application   container
