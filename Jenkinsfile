@@ -39,7 +39,7 @@ pipeline {
     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
-          sh("kubectl create deployment prueba --image=arbiel/prueba:latest")
+          bat "kubectl create deployment prueba --image=arbiel/prueba:latest"
         }
       }
     }
