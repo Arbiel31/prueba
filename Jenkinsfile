@@ -41,6 +41,7 @@ pipeline {
         script {
           bat "kubectl delete -n default deployment prueba"
           bat "kubectl create deployment prueba --image=arbiel/prueba:latest"
+          bat "kubectl delete -n default service prueba"
           bat "kubectl expose deployment prueba --type=LoadBalancer --port=4200"
           bat "minikube tunnel"
         }
