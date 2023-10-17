@@ -39,8 +39,10 @@ pipeline {
     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
+          bat "kubectl delete -n default deployment prueba"
           bat "kubectl create deployment prueba --image=arbiel/prueba:latest"
-          bat "kubectl expose deployment prueba --type=NodePort --port=4200"
+          bat "kubectl expose deployment prueba --type=LoadBalancer --port=4200"
+          bat "minikube tunnel"
         }
       }
     }
