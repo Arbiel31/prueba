@@ -40,6 +40,7 @@ pipeline {
       steps {
         script {
           bat "kubectl create deployment prueba --image=arbiel/prueba:latest"
+          bat "kubectl expose deployment prueba --type=NodePort --port=4200"
         }
       }
     }
